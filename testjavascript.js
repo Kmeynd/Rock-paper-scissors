@@ -28,6 +28,28 @@ function playGame(choice,humanScore,computerScore){
         
     const humanSelection = choice
     const computerSelection= getComputerChoice()
+
+    
+    const image = document.getElementById('human')
+    if (humanSelection=='rock'){
+        image.src="Images/Rock.jpg"
+
+    }else if(humanSelection=='paper'){
+        image.src="Images/Paper.jpg"
+    }else{
+        image.src="Images/Scissors.jpg"
+    }
+    const image2 = document.getElementById('computer')
+    if (computerSelection=='rock'){
+        image2.src="Images/Rock.jpg"
+
+    }else if(computerSelection=='paper'){
+        image2.src="Images/Paper.jpg"
+    }else{
+        image2.src="Images/Scissors.jpg"
+    }
+
+
     winner=playRound(humanSelection,computerSelection)
 
     if (winner=="human"){
@@ -44,7 +66,7 @@ function playGame(choice,humanScore,computerScore){
 
 const btns = document.querySelectorAll('button')
 
-const div1= document.querySelector('div')
+const div1= document.querySelector('.second')
 let div = document.createElement('div')
 div.textContent="Start to play!"
 div1.appendChild(div)
@@ -67,7 +89,7 @@ btns.forEach(function(item){
         div1.appendChild(div)
         }if((humanScore==5 || computerScore==5)&& clicked==0 ){
             clicked=1
-            div.textContent=`Final score ${humanScore} | ${computerScore}`
+            div.textContent=`Final score:  ${humanScore} | ${computerScore}`
             div1.appendChild(div)
             let p=document.createElement("p")
             if (humanScore>computerScore){
@@ -83,6 +105,10 @@ btns.forEach(function(item){
                 clicked=0
                 humanScore=0
                 computerScore=0
+                img=document.getElementById('human')
+                img2=document.getElementById('computer')
+                img.src="Images/ayr.jpg"
+                img2.src="Images/ayr.jpg"
                 div1.removeChild(but)
                 div1.removeChild(p)
                 div.textContent="Start to play!"
